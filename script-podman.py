@@ -56,11 +56,7 @@ def check_podman_installed():
 
 
 def ensure_podman_socket_running():
-    if os.geteuid() == 0:
-        bus = dbus.SystemBus()
-    else:
-        bus = dbus.SessionBus()
-
+    bus = dbus.SessionBus()
     systemd = bus.get_object('org.freedesktop.systemd1', '/org/freedesktop/systemd1')
     manager = dbus.Interface(systemd, 'org.freedesktop.systemd1.Manager')
     service = 'podman.socket'
@@ -197,7 +193,9 @@ def set_selinux_context_t():
 
 def run_container():
     # ensure ./rpmbuild has the container_file_t label set
-    set_selinux_context_t()
+    if selinux.is_selinux_enabled():
+        set_selinux_context_t()    
+
     cprint('PODMAN: run container...', 'yellow')
     bind_volumes          = []
     cur_dir               = os.path.dirname(os.path.realpath(__file__))
