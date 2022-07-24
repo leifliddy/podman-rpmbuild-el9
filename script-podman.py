@@ -38,7 +38,7 @@ def print_failure():
 
 def check_podman_installed():
     cprint('{0:.<70}'.format('PODMAN: is podman installed'), 'yellow', end='')
-    podman_instprint_noalled = False
+    podman_installed = False
     ts = rpm.TransactionSet()
     rpm_listing = ts.dbMatch()
 
