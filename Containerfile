@@ -1,4 +1,4 @@
-FROM quay.io/centos/centos:stream9
+FROM docker.io/library/rockylinux:9
 
 RUN dnf update -y &&\
     dnf install -y dnf-plugins-core &&\
@@ -9,7 +9,7 @@ RUN dnf update -y &&\
     mkdir /root/.bashrc.d
 
 COPY files/bashrc /root/.bashrc
-COPY files/bashrc-centos /root/.bashrc.d/centos
+COPY files/bashrc-default /root/.bashrc.d/default
 
 # set login directory
 WORKDIR /root
