@@ -10,6 +10,8 @@ RUN dnf update -y &&\
 
 COPY files/bashrc /root/.bashrc
 COPY files/bashrc-default /root/.bashrc.d/default
+COPY files/bashrc-rpmbuild /root/.bashrc.d/rpmbuild
+COPY files/rpmmacros /root/.rpmmacros
 
 # set login directory
 WORKDIR /root

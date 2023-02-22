@@ -1,11 +1,16 @@
 alias vi='vim'
-alias gospec='cd ~/rpmbuild/SPECS'
-alias gosource='cd ~/rpmbuild/SOURCES'
-alias gobuild='cd ~/rpmbuild/BUILD'
-alias gobuildroot='cd ~/rpmbuild/BUILDROOT'
-alias gorpm='cd ~/rpmbuild/RPMS'
-alias gosrpm='cd ~/rpmbuild/SRPMS'
+alias sourceit='source ~/.bashrc'
+
+findit() {
+  find . -type f | xargs grep $1
+}
 
 removetrailingwhitespace() {
-   sed -i 's/[ \t]*$//' "$1"
+   for file in $@; do
+     sed -i 's/[ \t]*$//' "$file"
+   done
+}
+
+wp() {
+   dnf whatprovides "*$1*"
 }
