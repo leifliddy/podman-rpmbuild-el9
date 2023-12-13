@@ -5,7 +5,7 @@ This project creates an rpmbuild environment for el9
 
 **Fedora package install**
 ```
-dnf install podman python3-podman python3-termcolor   
+dnf install podman python3-podman python3-rich python3-termcolor   
 ```
 
 ```
