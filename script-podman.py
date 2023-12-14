@@ -206,6 +206,8 @@ def set_selinux_context_t():
                 for dir_path, dirs, files in os.walk(host_dir):
                     for filename in files:
                         file_path = os.path.join(dir_path,filename)
+                        if os.path.islink(file_path):
+                            continue                        
                         dir_file_paths.append(file_path)
 
                     dir_file_paths.append(dir_path)
