@@ -4,6 +4,7 @@ alias gobuild='cd ~/rpmbuild/BUILD'
 alias gobuildroot='cd ~/rpmbuild/BUILDROOT'
 alias gorpm='cd ~/rpmbuild/RPMS'
 alias gosrpm='cd ~/rpmbuild/SRPMS'
+alias mockshell='mock --shell --enable-network'
 
 
 dep() {
